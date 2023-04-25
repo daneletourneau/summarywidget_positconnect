@@ -61,6 +61,10 @@ HTMLWidgets.widget({
             value = '';
           }
           el.innerText = value;
+          var elementExists = document.getElementsByName('summarywidget')[0];
+          if (elementExists !== null) {
+	    document.getElementsByName('summarywidget')[0].href = value; 
+  	  }
         };
 
        // Set up to receive crosstalk filter and selection events
@@ -83,11 +87,6 @@ HTMLWidgets.widget({
            update(data);
          }
        });
-	  
-       var elementExists = document.getElementsByName('summarywidget')[0];
-         if (elementExists !== null) {
-	    document.getElementsByName('summarywidget')[0].href = update(data); 
-  	 }
 	      
        update(data);
       },
