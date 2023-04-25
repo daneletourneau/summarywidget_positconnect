@@ -4,6 +4,9 @@ HTMLWidgets.widget({
 
   factory: function(el, width, height) {
 
+    // Create anchor element.
+    // var a = document.getElementById("download_link");  
+
     // Filter obj, returning a new obj containing only
     // values with keys in keys.
     var filterKeys = function(obj, keys) {
@@ -38,7 +41,7 @@ HTMLWidgets.widget({
             if (d.hasOwnProperty(key)) { values.push(d[key]);}
           }
 
-          var value = 0;
+          var value = '';
           switch (x.settings.statistic) {
             case 'count':
               value = values.length;
@@ -52,8 +55,17 @@ HTMLWidgets.widget({
           }
 
           if (x.settings.digits !== null) value = value.toFixed(x.settings.digits);
+
+	  // This is where Dane L. has modified the script to get the INDICATOR_ID directly outputted as a character vector
+          keys = Object.keys(d)
+          if (keys.length == 1) {
+          value = keys;
+          } else {
+            value = '';
+          }
           el.innerText = value;
-       };
+
+        };
 
        // Set up to receive crosstalk filter and selection events
        var ct_filter = new crosstalk.FilterHandle();
@@ -75,7 +87,9 @@ HTMLWidgets.widget({
            update(data);
          }
        });
-
+           // Set the href property.
+       //a.href = update(data);
+       //a; 
        update(data);
       },
 
@@ -83,7 +97,7 @@ HTMLWidgets.widget({
 
         // TODO: code to re-render the widget with a new size
 
-      }
+      },
 
     };
   }
