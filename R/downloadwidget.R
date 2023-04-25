@@ -31,7 +31,7 @@ downloadwidget <- function(data,
     data <- data$origData()
   } else {
     # Not using Crosstalk
-    warning("summarywidget works best when data is an instance of crosstalk::SharedData.")
+    warning("downloadwidget works best when data is an instance of crosstalk::SharedData.")
     key <- NULL
     group <- NULL
   }
@@ -77,11 +77,11 @@ downloadwidget <- function(data,
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'summarywidget',
+    name = 'downloadwidget',
     x,
     width = width,
     height = height,
-    package = 'summarywidget',
+    package = 'downloadwidget',
     elementId = elementId,
     dependencies = crosstalk::crosstalkLibs()
   )
@@ -101,21 +101,21 @@ downloadwidget <- function(data,
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
 #'
-#' @name summarywidget-shiny
+#' @name downloadwidget-shiny
 #'
 #' @export
-summarywidgetOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'summarywidget', width, height, package = 'summarywidget')
+downloadwidgetOutput <- function(outputId, width = '100%', height = '400px'){
+  htmlwidgets::shinyWidgetOutput(outputId, 'downloadwidget', width, height, package = 'summarywidget')
 }
 
 #' @rdname summarywidget-shiny
 #' @export
-renderSummarywidget <- function(expr, env = parent.frame(), quoted = FALSE) {
+renderDownloadwidget <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, summarywidgetOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, downloadwidgetOutput, env, quoted = TRUE)
 }
 
 # Use a <span> container rather than the default <div>
-summarywidget_html <- function(id, style, class, ...){
+downloadwidget_html <- function(id, style, class, ...){
   htmltools::tags$span(id = id, class = class)
 }
