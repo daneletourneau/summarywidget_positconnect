@@ -1,5 +1,5 @@
 HTMLWidgets.widget({
-  name: 'downloadwidget',
+  name: 'summarywidget',
   type: 'output',
 
   factory: function(el, width, height) {
