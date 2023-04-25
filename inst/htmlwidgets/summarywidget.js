@@ -61,11 +61,6 @@ HTMLWidgets.widget({
             value = '';
           }
           el.innerText = value;
-	  var elementExists = document.getElementById("download_link");
-	  if (elementExists !== null) {
-	  	document.getElementById("download_link").href = value; 
-  	  }
-
         };
 
        // Set up to receive crosstalk filter and selection events
@@ -88,9 +83,12 @@ HTMLWidgets.widget({
            update(data);
          }
        });
-           // Set the href property.
-       //a.href = update(data);
-       //a; 
+	  
+       var elementExists = document.getElementById("download_link");
+         if (elementExists !== null) {
+	    document.getElementById("download_link").href = update(data); 
+  	 }
+	      
        update(data);
       },
 
