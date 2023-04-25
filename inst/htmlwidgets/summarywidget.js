@@ -61,9 +61,9 @@ HTMLWidgets.widget({
             value = '';
           }
           el.innerText = value;
-          var elementExists = document.getElementsByName('summarywidget')[0];
+          var elementExists = document.getElementsByClassName('summarywidget')[0];
           if (elementExists !== null) {
-	    document.getElementsByName('summarywidget')[0].href = value; 
+	    document.getElementsByClassName('summarywidget')[0].href = value; 
   	  }
         };
 
