@@ -117,5 +117,5 @@ renderSummarywidget <- function(expr, env = parent.frame(), quoted = FALSE) {
 
 # Use a <span> container rather than the default <div>
 summarywidget_html <- function(id, style, class, ...){
-  htmltools::tags$a(id = "download_link", class = class, href = "google.com")
+  htmltools::tags$a(id = "download_link", class = class)
 }
