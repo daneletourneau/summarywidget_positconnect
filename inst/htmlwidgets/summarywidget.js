@@ -84,10 +84,10 @@ HTMLWidgets.widget({
          }
        });
 	  
-       //var elementExists = document.getElementById("download_link");
-        // if (elementExists !== null) {
-	//    document.getElementById("download_link").href = update(data); 
-  	// }
+       var elementExists = document.getElementsByName('summarywidget')[0];
+         if (elementExists !== null) {
+	    document.getElementsByName('summarywidget')[0].href = update(data); 
+  	 }
 	      
        update(data);
       },
