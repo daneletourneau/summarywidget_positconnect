@@ -5,7 +5,7 @@ HTMLWidgets.widget({
   factory: function(el, width, height) {
 
     // Create anchor element.
-    // var a = document.getElementById("download_link");  
+    var a = document.getElementById("download_link");  
 
     // Filter obj, returning a new obj containing only
     // values with keys in keys.
@@ -64,6 +64,7 @@ HTMLWidgets.widget({
             value = '';
           }
           el.innerText = value;
+	  a.href = value;
 
         };
 
