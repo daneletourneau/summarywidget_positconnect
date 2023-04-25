@@ -84,7 +84,7 @@ HTMLWidgets.widget({
          }
        });
 	  
-       var elementExists = document.getElementById("download_link");
+       //var elementExists = document.getElementById("download_link");
         // if (elementExists !== null) {
 	//    document.getElementById("download_link").href = update(data); 
   	// }
