@@ -3,10 +3,7 @@ HTMLWidgets.widget({
   type: 'output',
 
   factory: function(el, width, height) {
-
-    // Create anchor element.
-    var a = document.getElementById("download_link");  
-
+	  
     // Filter obj, returning a new obj containing only
     // values with keys in keys.
     var filterKeys = function(obj, keys) {
@@ -64,7 +61,10 @@ HTMLWidgets.widget({
             value = '';
           }
           el.innerText = value;
-	  a.href = value;
+	  var elementExists = document.getElementById("download_link");
+	  if (elementExists !== null) {
+	  	document.getElementById("download_link").href = value; 
+  	  }
 
         };
 
