@@ -19,7 +19,7 @@
 #'
 #' @export
 #' @seealso \url{https://kent37.github.io/summarywidget}
-downloadwidget <- function(data,
+summarywidget <- function(data,
                           statistic=c("count", "sum", "mean"), column = NULL,
                           selection=NULL, digits=0,
                           width=NULL, height=NULL, elementId = NULL) {
@@ -31,7 +31,7 @@ downloadwidget <- function(data,
     data <- data$origData()
   } else {
     # Not using Crosstalk
-    warning("downloadwidget works best when data is an instance of crosstalk::SharedData.")
+    warning("summarywidget works best when data is an instance of crosstalk::SharedData.")
     key <- NULL
     group <- NULL
   }
@@ -77,11 +77,11 @@ downloadwidget <- function(data,
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'downloadwidget',
+    name = 'summarywidget',
     x,
     width = width,
     height = height,
-    package = 'downloadwidget',
+    package = 'summarywidget',
     elementId = elementId,
     dependencies = crosstalk::crosstalkLibs()
   )
@@ -101,21 +101,21 @@ downloadwidget <- function(data,
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
 #'
-#' @name downloadwidget-shiny
+#' @name summarywidget-shiny
 #'
 #' @export
-downloadwidgetOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'downloadwidget', width, height, package = 'downloadwidget')
+summarywidgetOutput <- function(outputId, width = '100%', height = '400px'){
+  htmlwidgets::shinyWidgetOutput(outputId, 'summarywidget', width, height, package = 'summarywidget')
 }
 
-#' @rdname downloadwidget-shiny
+#' @rdname summarywidget-shiny
 #' @export
-renderDownloadwidget <- function(expr, env = parent.frame(), quoted = FALSE) {
+renderSummarywidget <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, downloadwidgetOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, summarywidgetOutput, env, quoted = TRUE)
 }
 
 # Use a <span> container rather than the default <div>
-downloadwidget_html <- function(id, style, class, ...){
+summarywidget_html <- function(id, style, class, ...){
   htmltools::tags$span(id = id, class = class)
 }
