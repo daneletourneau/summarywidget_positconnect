@@ -56,11 +56,13 @@ HTMLWidgets.widget({
 	  // This is where Dane L. has modified the script to get the INDICATOR_ID directly outputted as a character vector
           keys = Object.keys(d)
           if (keys.length == 1) {
-          value = keys;
+          	value = keys;
+		el.innerText = "Download workbook (.xlsx)";
           } else {
             value = '';
+	    el.innerText = "No data available";
           }
-          el.innerText = value;
+          
           var elementExists = document.getElementsByClassName('summarywidget')[0];
           if (elementExists !== null) {
 	    document.getElementsByClassName('summarywidget')[0].href = value; 
