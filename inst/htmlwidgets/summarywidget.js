@@ -53,11 +53,14 @@ HTMLWidgets.widget({
 
           if (x.settings.digits !== null) value = value.toFixed(x.settings.digits);
 
-	  // This is where Dane L. has modified the script to get the INDICATOR_ID directly outputted as a character vector
+	  // Here we get the SharedData key and deliver that to value (goes into the <a href""> parameter), and then   
+	  // change innerText so the text of the link will be a certain extract of information from the key string
           keys = Object.keys(d)
           if (keys.length == 1) {
-          	value = keys;
-		el.innerText = "Download workbook (.xlsx)";
+            value = keys;
+            const splitvals = value.split("/");
+	    const last3 = arr.slice(-3);
+	    el.innerText = "Download workbook (" + last3[1] + " " + last3[2] + ")";
           } else {
             value = '';
 	    el.innerText = "No data available";
