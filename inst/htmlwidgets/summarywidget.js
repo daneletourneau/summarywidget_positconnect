@@ -53,13 +53,13 @@ HTMLWidgets.widget({
 
           if (x.settings.digits !== null) value = value.toFixed(x.settings.digits);
 
-	  // Here we get the SharedData key and deliver that to value (goes into the <a href""> parameter), and then   
+	  // Here we get the SharedData key and deliver that to value (goes into the <a href=""> parameter), and then   
 	  // change innerText so the text of the link will be a certain extract of information from the key string
           keys = Object.keys(d)
           if (keys.length == 1) {
             value = keys;
             const splitvals = value.split("/");
-	    const last3 = arr.slice(-3);
+	    const last3 = splitvals.slice(-3);
 	    el.innerText = "Download workbook (" + last3[1] + " " + last3[2] + ")";
           } else {
             value = '';
