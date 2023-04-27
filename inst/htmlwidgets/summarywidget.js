@@ -58,9 +58,11 @@ HTMLWidgets.widget({
           keys = Object.keys(d)
           if (keys.length == 1) {
             value = keys;
-            const splitvals = value.split("/");
+	    const valuestr = String(value)
+            const splitvals = valuestr.split("/");
 	    const last3 = splitvals.slice(-3);
-	    el.innerText = "Download workbook (" + last3[1] + " " + last3[2] + ")";
+	    const text = "Download workbook (" + last3[1] + " " + last3[2] + ")"
+	    el.innerText = text;
           } else {
             value = '';
 	    el.innerText = "No data available";
