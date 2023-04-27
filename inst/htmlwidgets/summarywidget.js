@@ -59,7 +59,7 @@ HTMLWidgets.widget({
           if (keys.length == 1) {
             value = keys;
 	    const valuestr = String(value[0])
-            const splitvals = valuestr.split("/");
+            const splitvals = valuestr.split("\");
 	    const last3 = splitvals.slice(-3);
 	    const text = "Download workbook (" + last3[0] + " " + last3[1] + ")"
 	    el.innerText = text;
