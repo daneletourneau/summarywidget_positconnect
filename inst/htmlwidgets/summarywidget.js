@@ -61,7 +61,7 @@ HTMLWidgets.widget({
 	    const valuestr = String(value[0])
             const splitvals = valuestr.split("\\");
 	    const last3 = splitvals.slice(-3);
-	    const text = "Download workbook (" + last3[0].substring(0, 4) + "/" + last3[0].substring(4) + ", " + last3[1] + ")"
+	    const text = "Download workbook (data for " + last3[0].substring(0, 4) + "/" + last3[0].substring(4) + ", " + last3[1] + ")"
 	    el.innerText = text;
           } else {
             value = '';
