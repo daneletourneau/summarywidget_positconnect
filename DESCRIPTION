@@ -1,4 +1,4 @@
-Package: downloadwidget
+Package: summarywidget
 Title: Display Summary Statistics from Linked Data
 Version: 0.0.0.9000
 Authors@R: person("Kent", "Johnson", email = "kent@kentsjohnson.com", role = c("aut", "cre"))
