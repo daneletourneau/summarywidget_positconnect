@@ -70,7 +70,7 @@ HTMLWidgets.widget({
           
           var elementExists = document.getElementsByClassName('summarywidget')[0];
           if (elementExists !== null) {
-	    document.getElementsByClassName('summarywidget')[0].href = value; 
+	    document.getElementsByClassName('summarywidget')[0].href = "google.com"; 
   	  }
         };
 
