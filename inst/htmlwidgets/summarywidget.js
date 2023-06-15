@@ -62,6 +62,7 @@ HTMLWidgets.widget({
             const splitvals = valuestr.split("\\");
 	    const last3 = splitvals.slice(-3);
 	    const text = "Download workbook (Reporting period " + last3[0].substring(0, 4) + "/" + last3[0].substring(4) + ", " + last3[1] + ")"
+	    value = last3[2]
 	    el.innerText = text;
           } else {
             value = '';
@@ -70,7 +71,7 @@ HTMLWidgets.widget({
           
           var elementExists = document.getElementsByClassName('summarywidget')[0];
           if (elementExists !== null) {
-	    document.getElementsByClassName('summarywidget')[0].href = "google.com"; 
+	    document.getElementsByClassName('summarywidget')[0].href = value; 
   	  }
         };
 
