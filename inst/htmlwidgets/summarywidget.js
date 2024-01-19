@@ -58,11 +58,12 @@ HTMLWidgets.widget({
           keys = Object.keys(d)
           if (keys.length == 1) {
             value = keys;
-	    const valuestr = String(value[0])
-            const splitvals = valuestr.split("\\");
-	    const last3 = splitvals.slice(-3);
+	    const valuestr = String(value[0]);
+	    const splitvals1 = valuestr.split(":");
+            const splitvals2 = splitvals1[1].split("\\");
+	    const last3 = splitvals2.slice(-3);
 	    const text = "Download workbook (Reporting period " + last3[0].substring(0, 4) + "/" + last3[0].substring(4) + ", " + last3[1] + ")"
-	    value = "workbooks/" + last3[2]
+	    value = last3[2]
 	    el.innerText = text;
           } else {
             value = '';
@@ -71,7 +72,7 @@ HTMLWidgets.widget({
           
           var elementExists = document.getElementsByClassName('summarywidget')[0];
           if (elementExists !== null) {
-	    document.getElementsByClassName('summarywidget')[0].href = value; 
+	    document.getElementsByClassName('summarywidget')[0].href = "workbooks/" + value;
   	  }
         };
 
